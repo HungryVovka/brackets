@@ -1,6 +1,15 @@
 module.exports = function check(str, bracketsConfig) {
-  while(/\[\]|\(\)|\{\}\|\||\1\2|\3\4|\5\6|\7\7|\8\8/g.test(str)){
-    str = str.replace(/\[\]|\(\)|\{\}\|\||\1\2|\3\4|\5\6|\7\7|\8\8/g, "");
+  var compare = "";
+  while (str.length != compare.length){
+    compare = str;
+    str = str.replace("12", "")
+      .replace("34", "")
+      .replace("56", "")
+      .replace("77", "")
+      .replace("88", "")
+      .replace("()", "")
+      .replace("[]", "")
+      .replace("{}", "");
   }
-  return str == "";
+  return (str.length == 0);
 }
