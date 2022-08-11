@@ -1,15 +1,14 @@
-module.exports = function check(str, bracketsConfig) {
-  var compare = "";
-  while (str.length != compare.length){
-    compare = str;
-    str = str.replace("12", "")
-      .replace("34", "")
-      .replace("56", "")
-      .replace("77", "")
-      .replace("88", "")
-      .replace("()", "")
-      .replace("[]", "")
-      .replace("{}", "");
-  }
-  return (str.length == 0);
+module.exports = function check(example, brackets) {
+  for (var i = example.length; i >= 0; i--){
+    for (var j = 0; j < brackets.length; j++){
+      while (example
+             .includes(brackets[j]
+                       .join(""))){            
+            example = example
+              .replace(brackets[j]
+                       .join(""), "");           
+        } 
+      }
+    }
+    return example == "" ? true : false;
 }
