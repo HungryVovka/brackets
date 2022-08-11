@@ -1,3 +1,7 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  str = str.replace(/\d/g, "");
+  while(/\[\]|\(\)|\{\}/g.test(str)){
+    str = str.replace(/\[\]|\(\)|\{\}/g, "");
+  }
+  return str == "";
 }
